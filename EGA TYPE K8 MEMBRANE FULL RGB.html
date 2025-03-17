@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMTC EGA TYPE K8 MEMBRANE FULL RGB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            overflow: hidden;
+            background-color: #007bff;
+            white-space: nowrap;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 20px 0; /* เพิ่มขนาด footer */
+            text-align: center;
+            font-size: 24px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+            color: white;
+            font-weight: bold;
+            margin-top: 20px; /* เพิ่มระยะห่างจากจุดเด่นสินค้า */
+        }
+
+        .footer-container {
+            background-color: #007bff;
+            white-space: nowrap;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            position: relative; /* ทำให้ Footer อยู่ท้ายสุด */
+            bottom: 0;
+        }
+
+        .footer-text {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 20px;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+    background: linear-gradient(90deg, #ff0000, #0000ff);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s linear infinite alternate;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 🔹 Animation ไล่สีไปมา */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+
+        #header-title, #logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            border-right: 3px solid white;
+            padding-right: 5px;
+            animation: blinkCursor 0.7s infinite;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: white; }
+        }
+        .marquee-text {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5); /* ปรับพื้นหลังให้ชัด */
+            color: white;
+            padding: 5px 10px;
+        }
+        .moving-text {
+            position: absolute;
+            bottom: 10px; /* ปรับระยะห่างจากขอบล่าง */
+            z-index: 1;
+        }
+
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+       
+        span {
+            content: "\279C";
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            cursor: pointer;
+            object-fit: cover;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail.active {
+            border-color: #0066cc;
+        }
+        
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        
+        .product-price-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #e63946;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            color: #ffc107;
+            font-size: 24px;
+            margin-right: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .rating-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .specs {
+            margin-bottom: 20px;
+        }
+        
+        .specs h3 {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .specs-list {
+            list-style: none;
+        }
+        
+        .specs-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .specs-list li span {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+        
+        .buy-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-btn:hover {
+            background-color: #2ecc71;
+        }
+        
+        .video-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .video-section h2 {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .features {
+            margin-top: 80px; /* ขยับทั้งเซคชันลงมา */
+            margin-bottom: 40px; /* เพิ่มระยะห่างด้านล่าง */
+        }
+
+        .features h2 {
+            margin-bottom: 20px;
+        }
+        
+        .feature-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+        
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .feature-cards {
+                flex-direction: column;
+            }
+        }
+
+       
+    </style>
+</head>
+<body>
+        <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-2xl rounded-b-xl">
+            <div class="container mx-auto flex justify-between items-center p-6">
+                <div class="flex items-center space-x-4">
+                    <div class="container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z" />
+                    </svg>
+                    <h1 id="header-title"></h1>
+                </div>
+                </div>
+                <nav>
+                    <ul class="flex space-x-8">
+                        <li class="group">
+                            <a href="test2.html" class="flex items-center space-x-2 group-hover:text-yellow-300 transition duration-300 ease-in-out transform group-hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <span>หน้าหลัก</span>
+                            </a>
+                        </li>
+    </header>
+    
+    <div class="container">
+        <div class="nav">
+            <div id="logo-text"></div>
+        </div>
+    </div>
+    
+    <div class="product-container">
+        <div class="product-images">
+            <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98t-lope3u5bsgu569@resize_w900_nl.webp" alt="EGA TYPE K8 MEMBRANE FULL RGB" class="main-image">
+            <div class="thumbnail-container">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98s-lope3u5by33xe2@resize_w900_nl.webp" alt="ด้านหน้า" class="thumbnail active">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98s-lope3u5bv9z1af@resize_w900_nl.webp" alt="ด้านหลัง" class="thumbnail">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98z-lope3u5bwojhe9@resize_w900_nl.webp" alt="ด้านข้าง" class="thumbnail">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98t-lope3u5btvel1c@resize_w900_nl.webp" alt="มุมอื่น" class="thumbnail">
+            </div>
+        </div>
+        
+        <div class="product-info">
+            <h1 class="product-title">EGA TYPE K8 MEMBRANE FULL RGB</h1>
+            <div class="product-price-rating">
+                <p class="product-price">389 บาท</p>
+                <div class="product-rating">
+                    <span class="stars" id="star-rating"></span>
+                    <span class="rating-count">(ค่าความนิยม)</span>
+                </div>
+            </div>
+            
+            <div class="product-description">
+                <p>เป็นคีย์บอร์ดแมคคานิคอลที่ออกแบบมาเพื่อตอบสนองความต้องการของเกมเมอร์ด้วยคุณสมบัติที่หลากหลายและการออกแบบที่ทันสมัย</p>
+            </div>
+            
+            <div class="specs">
+                <h3>สเปคสินค้า</h3>
+                <ul class="specs-list">
+                    <li><span>ไฟ RGB:</span> มีไฟ</li>
+                    <li><span>มีสาย/ไร้สาย:</span> มีสาย</li>
+                    <li><span>การเชื่อมต่อ:</span> Wired</li>
+                    <li><span>ซอฟต์แวร์:</span> ไม่มี</li>
+                    <li><span>มาโคร:</span> ไม่มี</li>
+                    <li><span>ยี่ห้อสวิตซ์:</span>ธรรมดา</li>
+                    <li><span>ขนาดคีย์บอร์ด:</span> Full-Size</li>
+                    
+                </ul>
+            </div>
+            
+            <a href="https://shopee.co.th/product/153671531/17841313730?utm_campaign=-&utm_content=----&utm_medium=affiliates&utm_source=an_15376820013&utm_term=cnxj8g97pp39"target="_blank" class="buy-btn">สั่งซื้อได้ที่นี่</a>
+            
+        </div>
+    </div>
+    
+    <h3>รีวิว</h3>
+    <p>ช่องทางรีวิวสินค้า</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YPkMikNMB1s?si=IqZGAZjMYwVztpFV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+    <div class="features">
+        <h2>จุดเด่นของสินค้า</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>สวิตช์แบบเมมเบรน (Membrane Switch)</h3>
+                <p>ให้ความรู้สึกนุ่มนวลในการกดปุ่ม เหมาะสำหรับการพิมพ์และการเล่นเกม </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>การเชื่อมต่อผ่าน USB 2.0</h3>
+                <p>สายยาว 1.8 เมตร เพื่อการเชื่อมต่อที่เสถียรและยืดหยุ่นในการใช้งาน</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>ราคาและการรับประกัน</h3>
+                <p>คีย์บอร์ด EGA TYPE K8 มีราคาประมาณ 390 บาท และมาพร้อมการรับประกันสินค้า 2 ปีจากผู้ผลิตด้วยคุณสมบัติที่ครบครันและราคาที่คุ้มค่า คีย์บอร์ด EGA TYPE K8 จึงเป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่มองหาคีย์บอร์ดเกมมิ่งคุณภาพดีในราคาประหยัด</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <div class="footer-text">  GAMING GEAR THAILAND  เกมมิ่งเกียร์แบรนด์คนไทย    GAMING GEAR THAILAND  เกมมิ่งเกียร์แบรนด์คนไทย   </div>
+    </div>
+
+</body>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            function typeWriter(elementId, text, speed) {
+                let index = 0;
+                const element = document.getElementById(elementId);
+                element.textContent = ""; // เคลียร์ค่าเก่าก่อนเริ่มพิมพ์
+                function type() {
+                    if (index < text.length) {
+                        element.textContent += text[index];
+                        index++;
+                        setTimeout(type, speed);
+                    } else {
+                        element.style.borderRight = "none";
+                    }
+                }
+                type();
+            }
+
+            typeWriter("header-title", "GAMING GEAR THAILAND", 150);
+            typeWriter("logo-text", "เกมมิ่งเกียร์แบรนด์คนไทย", 150);
+        });
+        const productReview = {
+            rating: 3
+        };
+        
+        function createStarRating(rating) {
+            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        }
+
+        const stars = createStarRating(productReview.rating);
+        document.getElementById('star-rating').textContent = stars;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.main-image');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    
+                    thumbnails.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+        
+
+    </script>
+</body>
+</html>

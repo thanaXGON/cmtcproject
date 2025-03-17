@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อุปกรณ์เกมมิ่งแบรนด์คนไทย</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+
+    /* การตั้งค่าทั่วไปสำหรับ header */
+/* การตั้งค่าทั่วไปสำหรับ header */
+header {
+    background: linear-gradient(to right, #3b82f6, #4c6ef5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 1rem 1rem; /* ลดขนาดของ border-radius */
+    padding: 1rem 1.5rem; /* ลดขนาด padding */
+}
+
+/* รูปแบบของข้อความใน header */
+header h1 {
+    font-size: 1.5rem; /* ลดขนาดตัวอักษร */
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid;
+    padding-right: 5px;
+    display: inline-block;
+    animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+/* แอนิเมชั่นการพิมพ์ */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* แอนิเมชั่นการกระพริบของคอร์เซอร์ */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* การจัดรูปแบบปุ่มและลิงค์ใน header */
+header nav a {
+    color: white;
+    font-size: 1rem; /* ลดขนาดของลิงค์ */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* เอฟเฟกต์เมื่อโฮเวอร์บนลิงค์ */
+header nav a:hover {
+    color: #fbbf24;
+    transform: scale(1.05);
+}
+
+/* รูปแบบของไอคอนในลิงค์ */
+header nav svg {
+    margin-right: 0.5rem;
+}
+
+    /* เมนูหมวดหมู่ */
+    .menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 15px 10px; /* คง padding เพื่อให้ดูดี */
+    margin-top: 200px; /* เพิ่มระยะห่างด้านบน ปรับตามต้องการ */
+}
+
+    .menu button {
+        background: #444;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .menu button:hover, .menu button.active {
+        background: rgb(46, 46, 46);
+    }
+
+    /* ส่วนของ container */
+    .container {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* ปรับการจัดเรียงในหมวดหมู่ต่างๆ ให้ใช้ grid */
+    .category {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+        animation: slideUp 0.8s forwards;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .price {
+        color: rgb(255, 61, 61);
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 15px;
+        background: rgb(0, 34, 255);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: background 0.3s;
+    }
+
+    .button:hover {
+        background: rgb(255, 0, 0);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hidden {
+        display: none;
+    }
+    
+    .slider-container {
+    width: 100%;
+    max-width: 1400px; /* ขยายความกว้างขึ้นถ้าต้องการ */
+    height: 500px; /* เพิ่มความสูงของสไลด์ */
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto 0;
+    z-index: 5;
+}
+
+
+    .slider-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider-item {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้รูปขยายเต็มพื้นที่และไม่เสียสัดส่วน */
+}
+
+
+    .slider-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        padding: 0 20px;
+    }
+
+    .slider-controls button {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slider-controls button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .category {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .category {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .slider-container {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .category {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .menu {
+            flex-wrap: wrap;
+        }
+        .slider-container {
+            height: 200px;
+        }
+    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 650px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .modal iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+        <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>ช่วยในการพัฒนาเว็บไซต์</h2>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeGUHL2Qh7Q5VoJCLibS3UCX-jOxf3hIraD0xRRz3p3JuCpdw/viewform?embedded=true" width="640" height="1413" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</body>
+<body>
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-2xl rounded-b-xl">
+        <div class="container mx-auto flex justify-between items-center p-6">
+            <div class="flex items-center space-x-4">
+                <div class="container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z" />
+                    </svg>
+                    <h1 id="header-title"></h1>
+                </div>
+            </div>
+            <nav>
+                <ul class="flex space-x-8">
+                    <li class="group">
+                        <a href="test2.html" class="flex items-center space-x-2 group-hover:text-yellow-300 transition duration-300 ease-in-out transform group-hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <span>หน้าหลัก</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    </body>
+
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <div class="slider-item">
+                <img src="https://mms.img.susercontent.com/20d2f1f95616de33b561b0ce792ce32f" alt="Slide 1">
+            </div>
+            <div class="slider-item">
+                <img src="https://inwfile.com/s-fj/mm14cl.png" alt="Slide 2">
+            </div>
+            <div class="slider-item">
+                <img src="https://scontent.fbkk22-2.fna.fbcdn.net/v/t1.6435-9/78939903_2581932831843735_8570580438572072960_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeECOH4reAdqAgD9qvoe2dEjMYvLaXrwRwsxi8tpevBHCzovbVIbDcb6WpvMOz5J-QV_vLeYK6Adnf5SkBhq7hWP&_nc_ohc=BXeff9fXwP8Q7kNvgFXnm1O&_nc_oc=AdgNGZrjo1MC5mjtb8_pcip6Yw19_Lmxn128YswdNPkONAIfgxQemtwKB9ggK5Dbn4I&_nc_zt=23&_nc_ht=scontent.fbkk22-2.fna&_nc_gid=A-mpj0-Rnu0HTph0o0LNr74&oh=00_AYB68RKociYGcmEK153D9S62oEd7o_txLFCYEJbhCZJHFQ&oe=67EE6401" alt="Slide 3">
+            </div>
+            <div class="slider-item">
+                <img src="https://i.ytimg.com/vi/aoednpReseY/maxresdefault.jpg" alt="Slide 4">
+            </div>
+            <div class="slider-item">
+                <img src="https://inwfile.com/s-k/d8s0zd.jpg" alt="Slide 5">
+            </div>
+            <div class="slider-item">
+                <img src="https://mms.img.susercontent.com/f87ee3821ae48d30dd28896659f18e6f" alt="Slide 6">
+            </div>
+            <div class="slider-item">
+                <img src="https://cms.cadsondemak.com/uploads/LOGA_1_def8ae17a6.jpg" alt="Slide 7">
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button onclick="prevSlide()">❮</button>
+            <button onclick="nextSlide()">❯</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <button class="active" onclick="showCategory('mouse')">เมาส์</button>
+        <button onclick="showCategory('keyboard')">คีย์บอร์ด</button>
+        <button onclick="showCategory('mousepad')">แผ่นรองเมาส์</button>
+        <button onclick="showCategory('headset')">หูฟัง</button>
+    </div>
+
+    <div class="container">
+        <!-- หมวดหมู่ เมาส์ -->
+        <div id="mouse" class="category">
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98u-loxtklwsubni4c@resize_w900_nl.webp" alt="Mouse 1">
+                <div class="card-content">
+                    <h3>SIGNO E-Sport Wireless</h3>
+                    <p class="price">1,490 บาท</p>
+                    <p>เมาส์ไร้สาย น้ำหนักเบา เหมาะสำหรับเกม FPS</p>
+                    <a href="Signo WG-903.html" target="_blank"class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/28eed23f366df1c675a929949c92c22d@resize_w900_nl.webp" alt="Mouse 2">
+                <div class="card-content">
+                    <h3>NUBWO NM-89m</h3>
+                    <p class="price">289 บาท</p>
+                    <p>ปรับ DPI ได้ 6 ระดับ สูงสุด 12800 มี 7 ปุ่ม Macro Mouse เมาส์มาโคร รับประกัน1ปี</p>
+                    <a href="NUBWO NM-89m.html" target="_blank"class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasa-m5zp9ydiqnq5a7@resize_w900_nl.webp" alt="Mouse 3">
+                <div class="card-content">
+                    <h3>Neolution E-Sport Gaming Mouse Deimos</h3>
+                    <p class="price">600 บาท</p>
+                    <p>เมาส์เกมมิ่ง เม้าส์เล่นเกมส์ไร้สาย</p>
+                    <a href="Neolution E-Sport Gaming Mouse Deimos.html" target="_blank"class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasf-m2qbutq5b32k18@resize_w900_nl.webp" alt="Mouse 4">
+                <div class="card-content">
+                    <h3>EGA TYPE M8 GEN2</h3>
+                    <p class="price">990 บาท</p>
+                    <p>WIRELESS&BLUETOOTH&WIRED MACRO มีให้เลือก 2 สี Black/White</p>
+                    <a href="TYPE M8 GEN2.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98s-llvs0vq1gk5jed@resize_w900_nl.webp" alt="Mouse 5">
+                <div class="card-content">
+                    <h3>OKER G68 PRO MACRO GAMING MOUSE RGB</h3>
+                    <p class="price">590 บาท</p>
+                    <p>DPI สูงสุด 10,000 พร้อมปุ่มพิเศษ</p>
+                    <a href="OKER G68 Gaming Mouse Black.html" target="_blank"class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98p-lq9ztdeheg2s4e@resize_w900_nl.webp" alt="Mouse 6">
+                <div class="card-content">
+                    <h3>Razeak SYWW-8</h3>
+                    <p class="price">1,490</p>
+                    <p>เมาส์เกมมิ่งมีไฟ RGB ปรับ DPI ได้</p>
+                    <a href="Razeak SYWW-8.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://mercular.s3.ap-southeast-1.amazonaws.com/images/products/2021/09/Loga-Kirin-PRO-Wireless-Gaming-Mouse(3).png" alt="Mouse 7">
+                <div class="card-content">
+                    <h3>Loga Kirin PRO Wireless Gaming Mouse White</h3>
+                    <p class="price">2,490 บาท</p>
+                    <p>เมาส์เกมมิ่งไร้สายจาก Logaผลิตโดยโรงงานได้มาตรฐานระดับโลกใช้งานได้ยาวนานถึง 85 ชม. ในโหมดปิดไฟ RGBสามารถเปลี่ยนกรอบเมาส์ได้ 2 รูปแบบ</p>
+                    <a href="Loga Kirin PRO Wireless Gaming Mouse White.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- หมวดหมู่ คีย์บอร์ด -->
+        <div id="keyboard" class="category hidden">
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/5f731c64b4cb16047f9164ebcb56197f@resize_w900_nl.webp" alt="Keyboard 1">
+                <div class="card-content">
+                    <h3>Nubwo X33 Mechanical New Edition CIY</h3>
+                    <p class="price">490 บาท</p>
+                    <p>พร้อมด้วยไฟ mini RGB มี 2 สวิตช์ให้เลือก Blue / Red รับประกันศูนย์ 2 ปี</p>
+                    <a href="Nubwo X33 Mechanical New Edition CIY.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://www.jib.co.th/img_master/product/original/2020112513450643923_1.jpg" alt="Keyboard 2">
+                <div class="card-content">
+                    <h3>SIGNO E-SPORT GAMING KB-781 MAGUSTA</h3>
+                    <p class="price">1,690 บาท</p>
+                    <p>(BLUE OPTICAL SWITCH) ประกัน 2ปีแถม รองเม้าท์แผ่นยาว 1ชิ้น</p>
+                    <a href="SIGNO E-SPORT GAMING KB-781 MAGUSTA.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasa-m0mi9twajvlm76@resize_w900_nl.webp" alt="Keyboard 3">
+                <div class="card-content">
+                    <h3>Neolution E-Sport Gaming Keyboard Avatar</h3>
+                    <p class="price">890 บาท</p>
+                    <p>คีย์บอร์ดเกมมิ่ง คีย์บอร์ดเล่นเกมส์ Double Shot PBT Anti-Ghosting 100%</p>
+                    <a href="Neolution E-Sport Gaming Keyboard.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+                <div class="card">
+                    <img src="https://down-th.img.susercontent.com/file/d79276529364d7605c7061895682979e@resize_w900_nl.webp" alt="Keyboard 4">
+                    <div class="card-content">
+                        <h3>EGA TYPE K8 MEMBRANE FULL RGB</h3>
+                        <p class="price">389 บาท</p>
+                        <p>ไฟทะลุปุ่ม LIGHTING (รับประกันศูนย์ 2 ปี)</p>
+                        <a href="EGA TYPE K8 MEMBRANE FULL RGB.html"target="_blank" class="button">ดูรายละเอียด</a>
+                    </div>
+                </div>
+
+                    <div class="card">
+                        <img src="https://down-th.img.susercontent.com/file/963d25272ba37b45e8a8242507b09c79@resize_w900_nl.webp" alt="Keyboard 5">
+                        <div class="card-content">
+                            <h3>OKER K458 MIXED BACKLIT</h3>
+                            <p class="price">900 บาท</p>
+                            <p>คีย์บอร์ดบลูสวิตช์กดเสียงดังคีย์แคป สีสวย BLUESWITCH Keyboard Gaming</p>
+                            <a href="OKER K458 MIXED BACKLIT.html"target="_blank" class="button">ดูรายละเอียด</a>
+                        </div>
+                    </div>
+
+                        <div class="card">
+                            <img src="https://www.gump.in.th/uploaded_files/images/Razeakkkkkkkkkkkkkkkkkk/RK-X36%20-%2002.jpg" alt="Keyboard 6">
+                            <div class="card-content">
+                                <h3>Razeak RK-X36 Gaming Keyboard</h3>
+                                <p class="price">990 บาท</p>
+                                <p>เป็นคีย์บอร์ดที่ออกแบบมาเพื่อเกมเมอร์โดยเฉพาะ ด้วยคุณสมบัติที่ตอบสนองต่อการใช้งานทั้งการเล่นเกมและการพิมพ์ทั่วไป</p>
+                                <a href="Razeak RK-X36 Gaming Keyboard.html"target="_blank" class="button">ดูรายละเอียด</a>
+                            </div>
+                        </div>
+
+                            <div class="card">
+                                <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasl-m5jms9t3uvav5e.webp7" alt="Keyboard 7">
+                                <div class="card-content">
+                                    <h3>LOGA YAKSA 75AL</h3>
+                                    <p class="price">4,290 บาท</p>
+                                    <p>Amaterasu & Tsukuyomi [ Wireless Mechanical Keyboard]</p>
+                                    <a href="LOGA YAKSA 75AL.html"target="_blank" class="button">ดูรายละเอียด</a>
+                                </div>
+                            </div>
+
+        </div>
+
+        <!-- หมวดหมู่ แผ่นรองเมาส์ -->
+        <div id="mousepad" class="category hidden">
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98p-lmzzlgi5e62x45@resize_w900_nl.webp" alt="Mousepad 1">
+                <div class="card-content">
+                    <h3>NUBWO NP32 MOUSE PAD</h3>
+                    <p class="price">199 บาท</p>
+                    <p>สามารถวางคีบอร์ดและเมาส์พร้อมกันได้</p>
+                    <a href="NP32 MOUSE PAD.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/d5b315a3f4048ce40524ba7e77b0a453@resize_w900_nl.webp" alt="Mousepad 2">
+                <div class="card-content">
+                    <h3> SIGNO E-Sport MT-328</h3>
+                    <p class="price">250 บาท</p>
+                    <p>แผ่นรองเมาส์ กันน้ำ</p>
+                    <a href="Signo MT-328 Mousepad Black.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://www.neolutionesport.com/wp-content/uploads/2022/06/7404-600x600.jpg" alt="Mousepad 3">
+                <div class="card-content">
+                    <h3>Altec lancing Rgb mousepad 7404 </h3>
+                    <p class="price">650 บาท</p>
+                    <p>แผ่นรองเมาส์</p>
+                    <a href="Altec lancing Rgb mousepad 7404.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134201-7r98o-ll0jzjnbiup801@resize_w900_nl.webp" alt="Mousepad 4">
+                <div class="card-content">
+                    <h3>EGA TYPE MP6 Gaming Mousepad</h3>
+                    <p class="price">199 บาท</p>
+                    <p>แผ่นรองเมาส์</p>
+                    <a href="EGA TYPE MP6 Gaming Mousepad.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://itp1.itopfile.com/ImageServer/z_itp_20032021pnz5/0/0/MP35261z-z1339409362259.jpg" alt="Mousepad 5">
+                <div class="card-content">
+                    <h3>OKER GAMING MOUSE PAD MP3526</h3>
+                    <p class="price">85 บาท</p>
+                    <p>แผ่นรองเมาส์</p>
+                    <a href="GAMING MOUSE PAD MP3526 Oker.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/406f1c4be929ee92ea6390750f71c7b7@resize_w900_nl.webp" alt="Mousepad 6">
+                <div class="card-content">
+                    <h3> Razeak RP-05</h3>
+                    <p class="price">599 บาท</p>
+                    <p>แผ่นรองเมาส์มีไฟ ขนาดใหญ่ XL Mouse Pad Gaming RGB</p>
+                    <a href="Razeak RP-05 Mousepad.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98t-luvwog895xke6a@resize_w900_nl.webp" alt="Mousepad 7">
+                <div class="card-content">
+                    <h3>LOGA X SUNTUR</h3>
+                    <p class="price">2,490 บาท</p>
+                    <p>Mousepad Boxset Limited Collection - แผ่นรองเมาส์</p>
+                    <a href="LOGA X SUNTUR.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- หมวดหมู่ หูฟัง -->
+        <div id="headset" class="category hidden">
+            <div class="card">
+                <img src="https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product38764_800.jpg" alt="Headset 1">
+                <div class="card-content">
+                    <h3>NUBWO X99</h3>
+                    <p class="price">890.00 บาท</p>
+                    <p>หูฟังเกมมิ่ง ระบบเสียงเสมือน 7.1 surround แยกเสียงซ้าย-ขวา รับประกัน 2 ปี</p>
+                    <a href="Nubwo x99.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/b77187cc5c3ba035c909baa955641bf5@resize_w900_nl.webp" alt="Headset 2">
+                <div class="card-content">
+                    <h3>RGB SIGNO HP-824</h3>
+                    <p class="price">829 บาท</p>
+                    <p>หูฟังคอม สาย USB Gaming Headphone เสียง surround 7.1 ประกัน 2ปี</p>
+                    <a href="SIGNO HP-824.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://cdn.nocnoc.com/assets-static/assets/portal-assets/724599/product/images/32868/ads-nebula-wirelesspiceonline_65cf1ef6b7af1__1200x1200.jpg" alt="Headset 3">
+                <div class="card-content">
+                    <h3>Neolution E-Sport Gaming Headset Nebula Wireless</h3>
+                    <p class="price">1,990 บาท</p>
+                    <p> หูฟังเกมมิ่ง หูฟังไร้สาย มีไมโครโฟน มีไฟ RGB 7.1 Dual mic BT+ 2.4GHz</p>
+                    <a href="Neolution E-Sport Nebula.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/sg-11134201-23010-va4z6wj51xlv82@resize_w900_nl.webp" alt="Headset 4">
+                <div class="card-content">
+                    <h3>EGA TYPE H13</h3>
+                    <p class="price">990 บาท</p>
+                    <p>หูฟังเกมมิ่ง Gaming Headset เสียงเสมือน 7.1 ไฟ RGB port USB 2.0 รับประกันสินค้า 2 ปี</p>
+                    <a href="EGA TYPE H13.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/0aae1fb1688f8fc12fc9e61e87cdbc47@resize_w900_nl.webp" alt="Headset 5">
+                <div class="card-content">
+                    <h3>OKER M2 Headphone Black Mamba Gaming Headset</h3>
+                    <p class="price">600 บาท</p>
+                    <p>7.1 USB หูฟังเกมมิ่ง ระบบ7.1จำลอง หูฟัง โอเคอร์ ครอบหู</p>
+                    <a href="OKER M2 Headphone.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/sg-11134201-22120-a5vslxwl2jkvd5@resize_w900_nl.webp" alt="Headset 6">
+                <div class="card-content">
+                    <h3>Razeak SY-G25 Deer Antler Wired Headset</h3>
+                    <p class="price">405 บาท</p>
+                    <p>RGB Light Headphones with Noise Cancelling Mic 3.5mm Gaming Ear</p>
+                    <a href="Razeak SY-G25 Deer Antler Wired Headset.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98z-lwjtq3ks6w2708@resize_w900_nl.webp" alt="Headset 7">
+                <div class="card-content">
+                    <h3>LOGA Photon IEM</h3>
+                    <p class="price">1,990 บาท</p>
+                    <p>หูฟัง IEM หรือ In ear monitor จาก LOGA ที่ได้รับการปรับจูนคุณภาพเสียง และทดสอบโดย สตรีมเมอร์ โปร คนทำเพลง และ sound engineer และได้มีการให้นักรีวิวหลายๆท่านได้ทดลองใช้ก่อนวางขาย เพื่อที่ให้เรามั่นใจในคุณภาพว่า หูฟังตัวนี้เหมาะกับการเล่นเกม tactical shooter ได้เป็นอย่างดี และเรามาพร้อมกับประกันที่ยาวนานถึง 2 ปีให้ทุกท่านได้นำไปใช้อย่างอุ่นใจ</p>
+                    <a href="LOGA Photon IEM.html"target="_blank" class="button">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script>
+                function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+    function typeWriter(elementId, text, speed) {
+        let index = 0;
+        const element = document.getElementById(elementId);
+        element.textContent = ""; // เคลียร์ค่าเก่าก่อนเริ่มพิมพ์
+        function type() {
+            if (index < text.length) {
+                element.textContent += text[index];
+                index++;
+                setTimeout(type, speed);
+            } else {
+                element.style.borderRight = "none";
+            }
+        }
+        type();
+    }
+
+    typeWriter("header-title", "GAMING GEAR THAILAND", 150);
+});
+
+        // สไลด์โชว์
+        const slides = document.querySelectorAll(".slider-item");
+        const wrapper = document.querySelector(".slider-wrapper");
+        let currentSlide = 0;
+
+        function showSlide() {
+            wrapper.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide();
+        }
+
+        // สไลด์อัตโนมัติทุก 3 วินาที
+        let slideInterval = setInterval(nextSlide, 3000);
+
+        // หยุดสไลด์เมื่อเมาส์ชี้ไปที่สไลด์
+        document.querySelector(".slider-container").addEventListener("mouseenter", () => {
+            clearInterval(slideInterval);
+        });
+
+        // กลับมาเล่นใหม่เมื่อเอาเมาส์ออก
+        document.querySelector(".slider-container").addEventListener("mouseleave", () => {
+            slideInterval = setInterval(nextSlide, 3000);
+        });
+
+        function showCategory(category) {
+            // ซ่อนทุกหมวดหมู่ก่อน
+            document.querySelectorAll('.category').forEach(cat => {
+                cat.classList.add('hidden');
+            });
+
+            // แสดงหมวดหมู่ที่เลือก
+            let selectedCategory = document.getElementById(category);
+            if (selectedCategory) {
+                selectedCategory.classList.remove('hidden');
+            }
+
+            // อัปเดตปุ่มเมนู
+            document.querySelectorAll('.menu button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.querySelector(`.menu button[onclick="showCategory('${category}')"]`).classList.add('active');
+        }
+
+        // เริ่มต้นด้วยการแสดงหมวดหมู่ mouse
+        document.addEventListener("DOMContentLoaded", function() {
+            showCategory('mouse');
+        });
+    </script>
+</body>
+</html>
